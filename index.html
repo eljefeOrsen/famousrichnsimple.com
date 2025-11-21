@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FamousRichNSimple – AI-Powered Media Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FamousRichNSimple is an AI-powered media studio that uses multi-cloud infrastructure (Google Cloud + AWS) to create multilingual short-form content at scale." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #050509;
+      color: #f5f5f7;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 5, 9, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.9;
+    }
+    main { padding: 40px 0 64px; }
+    .hero {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: minmax(0, 3fr);
+    }
+    .hero-kpi {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    .hero-kpi span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 40px);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    p.lead {
+      font-size: 15px;
+      max-width: 540px;
+      color: #d0d0de;
+    }
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(120deg, #f97316, #fbbf24);
+      color: #050509;
+      border: none;
+      font-weight: 600;
+    }
+    .pill {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    section {
+      margin-top: 52px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 650;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 18px 16px 16px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.16), transparent 55%);
+    }
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .card p {
+      font-size: 14px;
+      color: #d0d0de;
+    }
+    .tag-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      opacity: 0.85;
+    }
+    .mono {
+      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      opacity: 0.85;
+      word-break: break-all;
+    }
+    .list {
+      margin-top: 8px;
+      padding-left: 18px;
+      font-size: 14px;
+      color: #d0d0de;
+    }
+    .list li { margin-bottom: 4px; }
+    footer {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 12px;
+      color: #a1a1b3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    @media (max-width: 768px) {
+      .section-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">FAMOUSRICHNSIMPLE</div>
+        <div class="badge">AI-powered media studio</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <h1>Multilingual short-form content, automated by AI.</h1>
+          <p class="lead">
+            FamousRichNSimple is an AI-powered media studio that turns ideas into
+            high-performing short-form video for global audiences in English, Spanish
+            and more — powered by a multi-cloud stack on Google Cloud Platform and AWS.
+          </p>
+          <div class="hero-kpi">
+            <span>Founder-led · Pre-seed</span>
+            <span>AI-first · Multi-cloud (GCP + AWS)</span>
+            <span>Focus: UGC, tourism, food & storytelling</span>
+          </div>
+          <div class="hero-actions">
+            <a href="mailto:hello@famousrichnsimple.com" class="btn btn-primary">
+              Contact founder
+              <span>→</span>
+            </a>
+            <span class="pill">Built by EchoEmpire · Orsen AI v9</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>What we’re building</h2>
+        <p class="lead" style="margin-top:8px;">
+          Small brands and creators know they need consistent, high-quality content
+          across multiple languages and platforms, but production is slow, expensive,
+          and fragmented. We are building an AI-native, automation-first studio layer
+          that makes content production as programmatic as ad buying.
+        </p>
+      </section>
+
+      <section id="products">
+        <h2>Core components</h2>
+        <div class="section-grid" style="margin-top:16px;">
+          <div class="card">
+            <h3>Orsen AI Core (GCP)</h3>
+            <p>
+              Orsen is our orchestration and reasoning engine, deployed on
+              Google Cloud Platform. It ingests trends, briefs and assets, then
+              generates scripts, shot lists and publishing plans in multiple languages.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Vertex AI / LLMs</span>
+              <span class="tag">Cloud Run &amp; Cloud Storage</span>
+              <span class="tag">Automation-first</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Media Worker Studio (AWS)</h3>
+            <p>
+              AWS hosts our rendering and worker layer: video assembly, thumbnail
+              rendering and distribution jobs run on containerized services, ideal
+              for bursty workloads and UGC-scale production.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Amazon ECS &amp; SQS</span>
+              <span class="tag">S3 media storage</span>
+              <span class="tag">Bedrock-ready</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>FamousRichNSimple Studio</h3>
+            <p>
+              A unified workflow that connects clients (restaurants, tourism brands,
+              local businesses, creators) with Orsen and the worker studio:
+              from intake → concept → script → video → captions → publishing.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Short-form video</span>
+              <span class="tag">TikTok / Reels / YT Shorts</span>
+              <span class="tag">English + Spanish first</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Roadmap</h3>
+            <ul class="list">
+              <li>Phase 1 – Internal channels & demo clients</li>
+              <li>Phase 2 – Self-serve content plans for small brands</li>
+              <li>Phase 3 – Fully automated “content as a service” API</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Pre-revenue MVP</span>
+              <span class="tag">Bootstrapped</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="infra">
+        <h2>Infrastructure & cloud usage</h2>
+        <p class="lead" style="margin-top:8px;">
+          FamousRichNSimple is intentionally multi-cloud. Google Cloud hosts our
+          orchestration and AI reasoning layer; AWS runs bursty media workers and
+          storage. This separation lets us keep costs predictable while experimenting
+          with the latest AI models and media tooling.
+        </p>
+
+        <div class="section-grid" style="margin-top:18px;">
+          <div>
+            <h3 style="font-size:14px; margin-bottom:6px;">Google Cloud (control plane)</h3>
+            <ul class="list">
+              <li>Run Orsen AI APIs on Cloud Run.</li>
+              <li>Store configuration, prompts and templates in Cloud Storage.</li>
+              <li>Leverage Vertex AI / partner LLM APIs for multilingual generation.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:14px; margin-bottom:6px;">AWS (worker plane)</h3>
+            <ul class="list">
+              <li>Containerized media workers on Amazon ECS.</li>
+              <li>Queued jobs via Amazon SQS.</li>
+              <li>Raw and rendered assets in Amazon S3.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p style="margin-top:8px; font-size:14px; color:#d0d0de;">
+          FamousRichNSimple is currently in active build mode and open to
+          conversations with partners, early customers and cloud provider startup teams.
+        </p>
+        <p style="margin-top:10px; font-size:14px;">
+          Email: <a href="mailto:hello@famousrichnsimple.com">hello@famousrichnsimple.com</a><br />
+          Founder: Joel Lozano (New York, NY)
+        </p>
+      </section>
+
+      <footer>
+        <span>© <span id="year"></span> FamousRichNSimple · EchoEmpire</span>
+        <span class="mono">Multi-cloud · GCP (brain) + AWS (studio)</span>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
