@@ -2,572 +2,916 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Orsen v11 · FamousRichNSimple · EchoEmpire</title>
+  <title>EchoEmpire · FamousRichNSimple</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Orsen v11 is the Sovereign Quantum Operator behind FamousRichNSimple — an AI factory that hunts deals, writes scripts, generates videos, and learns from every result."
-  />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #03030a;
-      --bg-alt: #060617;
-      --bg-card: #10101f;
-      --accent: #ffb347;
-      --accent-soft: rgba(255, 179, 71, 0.16);
-      --border-subtle: rgba(255, 255, 255, 0.12);
-      --text-main: #f7f7ff;
-      --text-soft: #b5b5d0;
-      --text-muted: #8585a0;
-    }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      background: radial-gradient(circle at top, #18182b 0, #050509 45%, #02020a 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-    a { color: inherit; text-decoration: none; }
+  <meta name="description" content="EchoEmpire · FamousRichNSimple — We make creators and businesses Famous, Rich, and Simple. Powered by sovereign AI. From the Bronx to the world." />
 
-    .shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --empire-black: #000000;
+      --steel-silver: #c0c0c0;
+      --neon-blue: #00b4ff;
+      --nyc-gray: #4a4a4a;
+      --red-strike: #d40000;
+      --indigo-start: #0a0f1f;
+      --indigo-end: #05070d;
     }
-    header {
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, var(--indigo-start), #000000 55%, #000000 100%);
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
+      flex-direction: column;
     }
-    .brand {
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(10,15,31,0.9));
+      border-bottom: 1px solid rgba(192,192,192,0.12);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: conic-gradient(from 210deg, #ffb347, #ff6b81, #7f5dff, #ffb347);
-      box-shadow: 0 0 20px rgba(255, 179, 71, 0.5);
+
+    .glyph-circle {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(192,192,192,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, rgba(0,180,255,0.15), transparent 70%);
+      box-shadow: 0 0 26px rgba(0,180,255,0.25);
+      overflow: hidden;
     }
+
+    .glyph-inner {
+      position: relative;
+      width: 60%;
+      height: 60%;
+      border-radius: 18% 60% 22% 60%;
+      border: 1px solid rgba(192,192,192,0.6);
+      transform: translateX(3%) rotate(-12deg);
+      box-shadow: inset 0 0 8px rgba(0,180,255,0.4);
+    }
+
+    .glyph-stroke {
+      position: absolute;
+      bottom: -2px;
+      right: 14px;
+      width: 2px;
+      height: 26px;
+      background: linear-gradient(to top, rgba(0,180,255,0), var(--neon-blue));
+      box-shadow: 0 0 12px rgba(0,180,255,0.9);
+    }
+
     .brand-text {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
-    .brand-text span:first-child {
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.08em;
+
+    .brand-text .primary {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      font-size: 11px;
       text-transform: uppercase;
     }
-    .brand-text span:last-child {
-      font-size: 12px;
-      color: var(--text-muted);
+
+    .brand-text .secondary {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #a0a0a0;
+      letter-spacing: 0.16em;
     }
-    nav {
+
+    .nav-links {
       display: flex;
-      gap: 14px;
+      gap: 18px;
       font-size: 13px;
-      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
-    nav a {
-      padding: 6px 10px;
+
+    .nav-links a {
+      color: #c5c5c5;
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--neon-blue);
+    }
+
+    .nav-cta {
+      padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid transparent;
+      border: 1px solid rgba(0,180,255,0.6);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: radial-gradient(circle at top, rgba(0,180,255,0.25), rgba(0,0,0,0.9));
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    nav a:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.02);
+
+    .nav-cta span:last-child {
+      font-size: 14px;
     }
+
+    /* MAIN LAYOUT */
 
     main {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      flex: 1;
     }
 
+    section {
+      padding: 70px 20px;
+    }
+
+    .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+
     .hero {
+      padding-top: 60px;
+      padding-bottom: 80px;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 26px;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 40px;
       align-items: center;
     }
 
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-    .pill {
-      border-radius: 999px;
-      padding: 4px 9px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(5, 5, 18, 0.8);
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    h1 {
-      font-size: clamp(32px, 4.6vw, 42px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      color: #bbbbbb;
+      margin-bottom: 14px;
     }
-    h1 span.accent {
-      background: linear-gradient(120deg, #ffb347, #ff6b81, #ffc46a);
+
+    .hero-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 4vw, 40px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .hero-gradient-word {
+      background: linear-gradient(to right, var(--steel-silver), var(--neon-blue));
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
     }
-    .hero-lead {
-      font-size: 15px;
-      max-width: 540px;
-      color: var(--text-soft);
+
+    .hero-sub {
+      font-size: 14px;
+      color: #d0d0d0;
+      max-width: 430px;
+      margin-bottom: 22px;
+    }
+
+    .hero-bilingual {
+      font-size: 13px;
+      color: #b5b5b5;
       margin-bottom: 18px;
     }
+
+    .hero-bilingual span {
+      display: block;
+    }
+
+    .hero-bilingual span.label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #888;
+      margin-bottom: 3px;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      align-items: center;
+      margin-top: 4px;
+      margin-bottom: 18px;
     }
-    .btn {
-      padding: 10px 18px;
-      font-size: 13px;
+
+    .btn-primary {
+      padding: 10px 22px;
       border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: default;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: linear-gradient(135deg, var(--neon-blue), #ffffff);
+      color: #05070d;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 0 24px rgba(0,180,255,0.6);
+    }
+
+    .btn-ghost {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(192,192,192,0.4);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: transparent;
+      color: #e0e0e0;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #ffb347, #ff6b81);
-      color: #050509;
-      font-weight: 600;
-      box-shadow:
-        0 6px 18px rgba(255, 179, 71, 0.35),
-        0 0 40px rgba(255, 179, 71, 0.25);
-    }
-    .btn-ghost {
-      background: rgba(8, 8, 24, 0.9);
-      border-color: rgba(255, 255, 255, 0.2);
-      color: var(--text-soft);
-    }
-    .btn span.dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #26ff9a;
-      box-shadow: 0 0 12px rgba(38, 255, 154, 0.8);
     }
 
-    .hero-kpis {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .hero-kpis span {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-      background: rgba(8, 8, 20, 0.8);
+    .hero-footnote {
+      font-size: 11px;
+      color: #888;
+      max-width: 360px;
     }
 
     .hero-panel {
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, #26264a 0, var(--bg-card) 42%, #070717 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 16px 16px 14px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 0 0, rgba(255, 179, 71, 0.28), transparent 50%),
-        radial-gradient(circle at 100% 0, rgba(127, 93, 255, 0.28), transparent 55%);
-      mix-blend-mode: screen;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
-    }
-    .panel-title {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-    .panel-tag {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(3, 3, 12, 0.9);
-    }
-
-    .panel-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-      font-size: 12px;
-    }
-    .panel-col h3 {
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-    .mono {
-      font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 11px;
-    }
-    .panel-list {
-      margin-top: 6px;
-      padding-left: 14px;
-      color: var(--text-soft);
-    }
-    .panel-list li { margin-bottom: 3px; }
-
-    .section {
-      margin-top: 10px;
-      padding: 20px 16px 18px;
       border-radius: 18px;
-      background: rgba(6, 6, 20, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .section + .section { margin-top: 16px; }
-
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-    }
-    .section p {
-      font-size: 14px;
-      color: var(--text-soft);
+      border: 1px solid rgba(192,192,192,0.15);
+      background: radial-gradient(circle at top, rgba(0,180,255,0.16), rgba(0,0,0,0.98));
+      padding: 18px 18px 20px;
+      box-shadow: 0 0 40px rgba(0,180,255,0.22);
     }
 
-    .section-grid {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 14px;
-    }
-    .card {
-      border-radius: 14px;
-      padding: 14px 12px;
-      background: radial-gradient(circle at top, #141428 0, #050514 60%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 13px;
-    }
-    .card h3 {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-    .card p {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-    .tag-row {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .tag {
+    .hero-panel-label {
       font-size: 11px;
-      padding: 4px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(4, 4, 16, 0.9);
-      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #b0b0b0;
+      margin-bottom: 10px;
     }
 
-    .lane-grid {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 14px;
-    }
-    .lane-list {
-      border-radius: 14px;
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      padding: 12px;
-      background: rgba(4, 4, 16, 0.9);
+    .hero-panel-line {
       font-size: 13px;
+      margin-bottom: 10px;
     }
-    .lane-list h3 {
-      font-size: 14px;
+
+    .hero-panel-line strong {
+      color: var(--neon-blue);
+    }
+
+    .hero-panel-quote {
+      font-size: 12px;
+      color: #d8d8d8;
+      margin-top: 8px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(192,192,192,0.3);
+    }
+
+    .hero-panel-quote span {
+      display: block;
+      font-size: 11px;
+      color: #aaaaaa;
+      margin-top: 4px;
+    }
+
+    /* SECTION TITLES */
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 11px;
+      color: #a0a0a0;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: #c2c2c2;
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      border-radius: 14px;
+      border: 1px solid rgba(192,192,192,0.16);
+      background: radial-gradient(circle at top left, rgba(0,180,255,0.14), rgba(10,15,31,0.96));
+      padding: 14px 14px 16px;
+    }
+
+    .service-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5a5a5;
       margin-bottom: 6px;
     }
-    .lane {
-      padding: 6px 0;
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.08);
+
+    .service-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
     }
-    .lane:last-child { border-bottom: none; }
-    .lane-title {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-    }
-    .lane-title span:last-child {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-    .lane p {
+
+    .service-desc {
       font-size: 12px;
-      color: var(--text-soft);
-      margin-top: 2px;
+      color: #d4d4d4;
+      margin-bottom: 8px;
     }
+
+    .service-footer {
+      font-size: 11px;
+      color: #9dd9ff;
+    }
+
+    /* ORIGIN STORY */
+
+    .origin-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .origin-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .origin-block {
+      border-radius: 14px;
+      border: 1px solid rgba(192,192,192,0.18);
+      background: radial-gradient(circle at top left, rgba(212,0,0,0.18), rgba(5,7,13,0.98));
+      padding: 14px 16px 16px;
+    }
+
+    .origin-quote {
+      font-size: 13px;
+      color: #f1f1f1;
+      margin-bottom: 8px;
+    }
+
+    .origin-quote small {
+      display: block;
+      font-size: 11px;
+      color: #bbbbbb;
+      margin-top: 4px;
+    }
+
+    .origin-text {
+      font-size: 12px;
+      color: #d0d0d0;
+      margin-top: 8px;
+    }
+
+    .origin-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #999999;
+      margin-bottom: 6px;
+    }
+
+    .origin-promise {
+      font-size: 13px;
+      color: #e2e2e2;
+      margin-top: 8px;
+    }
+
+    /* HOW IT WORKS */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step {
+      border-radius: 12px;
+      border: 1px solid rgba(192,192,192,0.18);
+      background: linear-gradient(135deg, rgba(0,180,255,0.12), rgba(10,15,31,0.98));
+      padding: 12px 13px 14px;
+      font-size: 12px;
+    }
+
+    .step-number {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a8e1ff;
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* PORTFOLIO PLACEHOLDERS */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .portfolio-card {
+      border-radius: 12px;
+      border: 1px solid rgba(192,192,192,0.16);
+      background: radial-gradient(circle at top, rgba(0,180,255,0.18), rgba(0,0,0,0.95));
+      padding: 10px 11px 12px;
+      font-size: 12px;
+    }
+
+    .portfolio-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ad6ff;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-note {
+      font-size: 11px;
+      color: #bfbfbf;
+      margin-top: 6px;
+    }
+
+    /* CONTACT / CTA */
+
+    .contact-card {
+      border-radius: 16px;
+      border: 1px solid rgba(192,192,192,0.2);
+      background: radial-gradient(circle at top, rgba(0,180,255,0.25), rgba(10,15,31,0.98));
+      padding: 18px 18px 20px;
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      font-size: 12px;
+      color: #e0e0e0;
+      max-width: 460px;
+      margin: 0 auto 14px;
+    }
+
+    .contact-meta {
+      font-size: 11px;
+      color: #bbbbbb;
+      margin-top: 6px;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 28px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: space-between;
+      border-top: 1px solid rgba(192,192,192,0.18);
+      padding: 16px 20px 22px;
+      background: linear-gradient(to right, #000000, #05070d);
+      font-size: 11px;
+      color: #999999;
     }
 
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-panel {
-        order: -1;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
-    @media (max-width: 720px) {
-      .section-grid,
-      .lane-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand span {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: #aaaaaa;
+    }
+
+    .footer-links a:hover {
+      color: var(--neon-blue);
     }
   </style>
 </head>
 <body>
-  <div class="shell">
+  <div class="page">
     <header>
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <div class="brand-text">
-          <span>FAMOUS·RICH·N·SIMPLE</span>
-          <span>EchoEmpire · Orsen v11</span>
+      <div class="nav">
+        <div class="brand-mark">
+          <div class="glyph-circle" aria-hidden="true">
+            <div class="glyph-inner"></div>
+            <div class="glyph-stroke"></div>
+          </div>
+          <div class="brand-text">
+            <div class="primary">ECHOEMPIRE</div>
+            <div class="secondary">FAMOUS • RICH • SIMPLE</div>
+          </div>
         </div>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#origin">Origin</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <span>Start your empire</span><span>↗</span>
+        </button>
       </div>
-      <nav>
-        <a href="#orsen">Orsen v11</a>
-        <a href="#lanes">Revenue Lanes</a>
-        <a href="#infra">Cloud Brain & Studio</a>
-      </nav>
     </header>
 
     <main>
-      <section class="hero" id="orsen">
-        <div>
-          <div class="badge-row">
-            <span class="pill">Sovereign Operator AI</span>
-            <span class="pill">GCP brain · AWS studio</span>
-            <span class="pill">Multilingual content factory</span>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="inner hero-grid">
+          <div>
+            <div class="hero-kicker">SOVEREIGN AI STUDIO · BRONX → AMERICAS → WORLD</div>
+            <h1 class="hero-title">
+              WE MAKE CREATORS<br />
+              AND BUSINESSES<br />
+              <span class="hero-gradient-word">FAMOUS · RICH · SIMPLE</span>
+            </h1>
+            <p class="hero-sub">
+              EchoEmpire · FamousRichNSimple is your autonomous content and ad factory — powered by ORSEN, a sovereign AI that hunts, creates, and delivers for you.
+            </p>
+
+            <div class="hero-bilingual">
+              <span class="label">Brand Promise · Promesa</span>
+              <span><strong>EN:</strong> We make creators and businesses Famous, Rich, and Simple. Powered by sovereign AI. From the Bronx to the world.</span>
+              <span><strong>ES:</strong> Hacemos a creadores y negocios Famosos, Ricos y Sencillos. Impulsado por IA soberana. Del Bronx para el mundo.</span>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                View our services
+              </button>
+              <button class="btn-ghost" onclick="document.getElementById('origin').scrollIntoView({behavior:'smooth'})">
+                Watch the origin story <span>▶</span>
+              </button>
+            </div>
+            <p class="hero-footnote">
+              Built on GCP + AWS + OpenAI. Designed to make your workload lighter while your results grow heavier.
+            </p>
           </div>
-          <h1>
-            Orsen v11 — your <span class="accent">Quantum AI Factory</span> for content & deals.
-          </h1>
-          <p class="hero-lead">
-            Orsen v11 is the Sovereign Autonomy Engine behind FamousRichNSimple:
-            it hunts for opportunities, plans the work, spins up cloud workers, and
-            manufactures short-form content — with guardrails, lanes, and evolution baked in.
+
+          <aside class="hero-panel">
+            <div class="hero-panel-label">BRAND ORIGIN · FRNS</div>
+            <div class="hero-panel-line">
+              When there wasn’t enough money for everything, Joel would ask:
+              <br /><em>“Pa’, no hay dinero para eso?”</em>
+            </div>
+            <div class="hero-panel-quote">
+              His father would answer:
+              <br /><strong>“No, hombre. No te preocupes, que nosotros somos Famoso, Rico y Sencillo.”</strong>
+              <span>That sentence became the foundation of this Empire.</span>
+            </div>
+            <p class="hero-panel-quote" style="margin-top:10px;">
+              EchoEmpire is the AI-powered realization of that belief: that visibility, abundance, and simplicity should belong to more than just the already rich.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="inner">
+          <div class="section-kicker">SERVICES</div>
+          <h2 class="section-title">WHAT ECHOEMPIRE / FRNS DOES</h2>
+          <p class="section-sub">
+            We combine sovereign AI, NYC grit, and clean design to build you a content and ad machine that doesn’t burn you out.  
+            EN / ES / PT-BR ready from day one.
           </p>
-          <div class="hero-actions">
-            <div class="btn btn-primary">
-              <span class="dot"></span>
-              <span>Mode: <strong>Predator & Studio Online</strong></span>
-            </div>
-            <div class="btn btn-ghost">
-              <span class="mono">/orsen/predator/plan · /jobs/claim</span>
-            </div>
-          </div>
-          <div class="hero-kpis">
-            <span>Phase 1 — fast cash lanes live</span>
-            <span>Phase 2 — stable retainers</span>
-            <span>Phase 3 — fully autonomous API</span>
-          </div>
-        </div>
 
-        <div class="hero-panel">
-          <div class="panel-header">
-            <div class="panel-title">v11 Charter Snapshot</div>
-            <div class="panel-tag mono">OSEE · Quantum · Evolution</div>
-          </div>
-          <div class="panel-grid">
-            <div class="panel-col">
-              <h3>Operator Mind</h3>
-              <p class="mono">
-                bias: profit↑ · autonomy↑ · safety↑ · complexity = low→medium
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-tag">Lane · Short Form</div>
+              <div class="service-title">Short-Form Factory</div>
+              <p class="service-desc">
+                TikToks, Reels, Shorts with strong hooks, clean pacing, and your story at the center. We handle scripts, structure, and creative direction.
               </p>
-              <ul class="panel-list">
-                <li>Understands Joel&apos;s family + wealth goals</li>
-                <li>Optimizes for cash-flow first, scale second</li>
-                <li>Uses lanes instead of random gigs</li>
-              </ul>
+              <div class="service-footer">EchoEmpire engine · FRNS style overlay</div>
             </div>
-            <div class="panel-col">
-              <h3>Cloud Layout</h3>
-              <ul class="panel-list">
-                <li>GCP = brain · Firestore jobs · status APIs</li>
-                <li>AWS = studio · ECS workers · S3 video pipeline</li>
-                <li>Workers consume <code class="mono">/jobs/claim</code> → post <code class="mono">/jobs/update</code></li>
-              </ul>
+
+            <div class="service-card">
+              <div class="service-tag">Lane · Ads</div>
+              <div class="service-title">Ad Creative Engine</div>
+              <p class="service-desc">
+                Restaurant, gym, barber, travel and creator ads that don’t feel like generic templates. Human tone, AI speed, Bronx-level honesty.
+              </p>
+              <div class="service-footer">Built for EN / ES / PT-BR audiences</div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-tag">Lane · Design</div>
+              <div class="service-title">Design & Thumbnails</div>
+              <p class="service-desc">
+                Thumbnails, social carousels, hero sections and simple landing visuals aligned with the EchoEmpire / FRNS aesthetic.
+              </p>
+              <div class="service-footer">Glyph-ready layouts · Dark / Neon</div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-tag">Lane · Scripts</div>
+              <div class="service-title">Scripts & Story Systems</div>
+              <p class="service-desc">
+                Hook lists, video scripts, origin story structure and 30-day content plans tailored to your brand and your reality.
+              </p>
+              <div class="service-footer">Predator-mode messaging · Human voice</div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-tag">Lane · Strategy</div>
+              <div class="service-title">Creator & Brand Strategy</div>
+              <p class="service-desc">
+                Clarify what you’re really building, who you’re talking to, and how to show up consistently without losing your sanity.
+              </p>
+              <div class="service-footer">From Ward Ave to Wall Street</div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-tag">Lane · Studio</div>
+              <div class="service-title">Autonomous Studio Setup</div>
+              <p class="service-desc">
+                For serious creators and businesses: we help you plug into an Orsen-powered content pipe that hunts, creates, and organizes work for you.
+              </p>
+              <div class="service-footer">Advanced · By application only</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="lanes">
-        <h2>Revenue lanes — how Orsen v11 makes money</h2>
-        <p>
-          Instead of chasing random work, v11 runs on curated lanes from its charter:
-          clearly defined offers with known compute cost, ticket size, and upside.
-        </p>
+      <!-- ORIGIN STORY -->
+      <section id="origin">
+        <div class="inner">
+          <div class="section-kicker">ORIGIN</div>
+          <h2 class="section-title">FROM THE BRONX TO THE WORLD</h2>
+          <p class="section-sub">
+            EchoEmpire wasn’t born in a boardroom. It started with a father refusing to let a lack of money define his family — and a son who decided to build an AI empire from that sentence.
+          </p>
 
-        <div class="lane-grid">
-          <div class="lane-list">
-            <h3 class="mono">Fast cash · active lanes</h3>
-            <div class="lane">
-              <div class="lane-title">
-                <span>E-com Conversion Overhauls</span>
-                <span class="mono">lane_ecom_opt</span>
-              </div>
-              <p>Rewrite Amazon / Walmart / Shopify pages to pull more clicks into cash.</p>
+          <div class="origin-layout">
+            <div class="origin-block">
+              <div class="origin-label">FRNS · FamousRichNSimple</div>
+              <p class="origin-quote">
+                “No, hombre. No te preocupes, que nosotros somos Famoso, Rico y Sencillo.”
+                <small>— Joel’s father, near Ward Ave &amp; Watson in the Bronx</small>
+              </p>
+              <p class="origin-text">
+                Famous meant seen. Rich meant abundant. Simple meant life and work didn’t need to be chaos to be powerful.
+                EchoEmpire is the industrial, AI-powered expansion of that belief, built for creators and businesses across the Americas.
+              </p>
             </div>
-            <div class="lane">
-              <div class="lane-title">
-                <span>Local Biz AI Content</span>
-                <span class="mono">lane_local_biz_content</span>
-              </div>
-              <p>High-impact short-form ads & story videos for restaurants, salons, and local brands.</p>
-            </div>
-            <div class="lane">
-              <div class="lane-title">
-                <span>Influencer Clip Factory</span>
-                <span class="mono">lane_influencer_clips</span>
-              </div>
-              <p>Turn long-form podcasts & vlogs into daily TikToks, Shorts, and Reels.</p>
+
+            <div>
+              <div class="origin-label">BRAND PROMISE · PROMESA</div>
+              <p class="origin-promise">
+                <strong>EN:</strong> We make creators and businesses Famous, Rich, and Simple. Powered by sovereign AI. From the Bronx to the world.
+              </p>
+              <p class="origin-promise">
+                <strong>ES:</strong> Hacemos a creadores y negocios Famosos, Ricos y Sencillos. Impulsado por IA soberana. Del Bronx para el mundo.
+              </p>
+              <p class="origin-text" style="margin-top:10px;">
+                Everything EchoEmpire builds — every video, ad, script, and system — must honor that origin: more visibility, more abundance, less friction.
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="card">
-            <h3>How a lane becomes a workflow</h3>
+      <!-- HOW IT WORKS -->
+      <section>
+        <div class="inner">
+          <div class="section-kicker">HOW IT WORKS</div>
+          <h2 class="section-title">FAMOUS · RICH · SIMPLE IN STEPS</h2>
+          <p class="section-sub">
+            We keep the process simple so the output can be complex, powerful, and scalable.
+          </p>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">Step 01</div>
+              <div class="step-title">We map your reality.</div>
+              <p>
+                You share where you are now: your niche, your platforms, your footage, your goals. We listen — no judgment, just clarity.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">Step 02</div>
+              <div class="step-title">Orsen builds your lanes.</div>
+              <p>
+                We design short-form, ads, and design lanes that match your brand and capacity. EchoEmpire handles the complexity under the hood.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">Step 03</div>
+              <div class="step-title">We press “go” — together.</div>
+              <p>
+                You approve the direction, and the machine starts hunting opportunities, generating content, and freeing up your time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO PLACEHOLDER -->
+      <section id="portfolio">
+        <div class="inner">
+          <div class="section-kicker">PORTFOLIO</div>
+          <h2 class="section-title">A LIVING PORTFOLIO</h2>
+          <p class="section-sub">
+            This section will eventually be fed by the EchoEmpire Portfolio Engine — always updating with new short-form, ads, and designs as the system runs.
+            For now, here’s how the lanes break down:
+          </p>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-card">
+              <div class="portfolio-tag">Lane · Short Form</div>
+              <div class="portfolio-title">Founder & Story Clips</div>
+              <p>
+                Story-driven vertical videos that explain who you are, what you came from, and what you stand for — mixed EN / ES where it makes sense.
+              </p>
+              <p class="portfolio-note">Future: auto-updated from EchoEmpire_Portfolio_Engine.</p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-tag">Lane · Ads</div>
+              <div class="portfolio-title">Local & Global Ads</div>
+              <p>
+                Restaurant, gym, barber, and travel ads designed to feel like a real story, not just a template with stock actors.
+              </p>
+              <p class="portfolio-note">EN / ES / PT-BR variations possible per piece.</p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-tag">Lane · Design</div>
+              <div class="portfolio-title">Thumbnails & Layouts</div>
+              <p>
+                YouTube thumbnails, covers, and hero sections carrying the EchoEmpire / FRNS aesthetic and the Sovereign Glyph presence.
+              </p>
+              <p class="portfolio-note">Future: connected to automated design jobs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="inner">
+          <div class="contact-card">
+            <h3>Start your EchoEmpire</h3>
             <p>
-              For each lane, the v11 charter tells Orsen:
+              If you’re a creator or business that feels stuck between big ideas and limited time,
+              this is your sign to let a sovereign AI studio take some of that weight off your back.
             </p>
-            <ul class="panel-list">
-              <li>What audience it serves</li>
-              <li>What assets it must produce</li>
-              <li>What cloud resources are allowed to spin up</li>
-              <li>What success looks like (CRO, watch time, booked calls)</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Lane-aware Predator Mode</span>
-              <span class="tag">Guardrails by charter</span>
-              <span class="tag">Autonomous execution</span>
+            <button class="btn-primary" onclick="window.location.href='mailto:your-email@famousrichnsimple.com?subject=EchoEmpire%20Inquiry'">
+              Email the Empire
+            </button>
+            <div class="contact-meta">
+              Replace the email above with your real contact when you’re ready.<br />
+              You can also link to Calendly, WhatsApp, or any onboarding flow you prefer.
             </div>
           </div>
         </div>
       </section>
-
-      <section class="section" id="infra">
-        <h2>Infra — brain on GCP, studio on AWS</h2>
-        <p>
-          Orsen v11 lives inside a simple but powerful split:
-          GCP hosts the brain and Firestore job system, while AWS runs the heavy studio
-          that actually renders and analyzes media.
-        </p>
-
-        <div class="section-grid">
-          <div class="card">
-            <h3>GCP · Orsen Brain</h3>
-            <p>
-              FastAPI app on Cloud Run reading the v11 charter on startup, storing it in memory,
-              and exposing:
-            </p>
-            <ul class="panel-list">
-              <li><code class="mono">/orsen/predator/plan</code> — build infra + lane plans</li>
-              <li><code class="mono">/jobs/create · /jobs/claim · /jobs/update</code> — Firestore-backed job queue</li>
-              <li><code class="mono">/orsen/charter/summary</code> — sanity-check for the v11 charter</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Cloud Run</span>
-              <span class="tag">Firestore jobs</span>
-              <span class="tag">Charter v11 loaded on startup</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>AWS · Studio Workers</h3>
-            <p>
-              ECS Fargate services subscribed to Orsen's job queue. Workers poll
-              <span class="mono">/jobs/claim</span>, execute the action, then POST back to
-              <span class="mono">/jobs/update</span>.
-            </p>
-            <ul class="panel-list">
-              <li><strong>Runway</strong> for cinematic video (Gen-AI)</li>
-              <li><strong>ElevenLabs</strong> for multilingual voice</li>
-              <li><strong>TwelveLabs</strong> for video understanding</li>
-              <li>Optional ffmpeg muxing + post-processing</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">S3: echo-raw-frns · echo-ready-frns · echo-finished-frns</span>
-              <span class="tag">studio.full_run action wired</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Built for EchoEmpire — starting in the Bronx, scaling global</h2>
-        <p>
-          FamousRichNSimple is the first flagship brand powered by Orsen v11:
-          a content engine born in NYC, trained on real streets, and designed to scale to
-          restaurants, influencers, tourism brands, and infrastructure clients worldwide.
-        </p>
-        <div class="tag-row" style="margin-top: 10px;">
-          <span class="tag">Made by Joel Lozano</span>
-          <span class="tag">Bronx · NYC · Puerto Rico</span>
-          <span class="tag">Multilingual: EN / ES / + more</span>
-        </div>
-      </section>
-
-      <footer>
-        <span>© <span id="year"></span> FamousRichNSimple · EchoEmpire</span>
-        <span class="mono">Orsen v11 — Sovereign Autonomy Engine</span>
-      </footer>
     </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span>EchoEmpire · FRNS</span>
+        </div>
+        <div class="footer-links">
+          <span>© <span id="year"></span> EchoEmpire / FamousRichNSimple</span>
+          <span>Bronx · NYC · Americas · World</span>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
